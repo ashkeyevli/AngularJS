@@ -1,31 +1,33 @@
 @import url(https://fonts.googleapis.com.css?family=Pacifico|Open+Sans|Montserrat);
 
 h1{margin-top: 0px;
-font-size: 2em;
-font-weight: bold;
+font-size: 1.5em;
+font-weight: normal;
+  float: left;
+  margin-top: 9px;
+  margin-left: 50px;
 }
 
 .calculator{
-  background-color: rgb(243,238, 231);
+  background-color: rgb(240,240,240);
   position: relative;
   margin: 7% auto auto auto;
-  width: 400px;
+  width: 530px;
   text-align: center;
-  border-color: rgb(99,94,97);
-  border-radius: 20px;
+  border-color: black;
+  border: solid;
+
+
 }
 
-.result{
-  border-radius: 8px;
-}
+
 button{
-
-  width: 80px;
-  height: 65px;
-  font-size: 20px;
-  border: 2px solid;
+  width: 130px;
+  height: 70px;
+   font-size: 20px;
+  border: 1px solid;
   border-color: rgb(87,85,88);
-  margin: 3px 0px 0px 1px;
+  margin: 3px 0px 0px 0px;
   transition-duration: 0.4s;
 }
 
@@ -35,8 +37,50 @@ button{
 }
 
 input{
-  width: 350px;
+  width: 500px;
   height: 60px;
   text-align: right;
   font-size: 1.7em;
+  background-color: rgb(240,240,240);
+  border: none;
+  margin: 2px 1px 1px 2px;
 }
+.history{
+  height: 20px;
+  width: 20px;
+  float: right;
+  margin-right: 10px;
+  margin-top: 40px;
+  //background:url('src/assets/clock.png') ;
+
+}
+.history-area{
+  height: 530px;
+  width: 530px;
+  position: relative;
+  background-color: rgb(210,210,210);
+
+
+}
+.dark{
+background-color: rgb(245,245,245)
+}
+.dark:hover{
+  background-color: rgb(221,221,221);
+}
+.light{
+  background-color: rgb(251,251,257);
+  font-weight: bold;
+}
+.light:hover{
+background-color: rgb(221,221,221)
+}
+.memory{
+  border: none;
+  width: 65px;
+  height: 40px;
+  margin-left: 1px;
+
+}
+
+
