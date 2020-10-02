@@ -1,0 +1,46 @@
+
+<div class="container">
+  <form [formGroup]="formView">
+    <ng-container>
+      <ng-container *ngFor="let field of fields; let i = index" >
+        <div *ngIf="field.type === 'radio'" class="row radioButton">
+           <input disabled  class = "question" value="{{i+1}}: {{ field.label }}">
+          <ng-container *ngIf="isTime===true">
+            <input value="Time left: {{timeleft}}">
+          </ng-container>
+          <ng-container *ngIf="isTime===false">
+            <input style="color:transparent; background-color: transparent; border: none" value="{{field.timer}}" #tt>
+            <button style="width: 200px; height: 20px" (click)="init(tt.value)">Start Timer for all questions</button>
+          </ng-container>
+          <mat-radio-group [formControlName]="i" [required]="field.required">
+            <div *ngIf="field.values && field.values.length > 0">
+              <mat-radio-button *ngFor="let row of field.values" [value]="row.option">
+                {{ row.option }}
+              </mat-radio-button>
+            </div>
+          </mat-radio-group>
+          <mat-error *ngIf="formView.controls[i].invalid">
+            Enter Valid Data
+          </mat-error>
+        </div>
+        <div *ngIf="field.type === 'select'" class="row radioButton">
+          <mat-label> {{i+1}}: {{ field.label }}</mat-label>
+          <mat-radio-group [formControlName]="i" [required]="field.required">
+            <div *ngIf="field.values && field.values.length > 0">
+              <mat-checkbox *ngFor="let row of field.values" [value]="row.option">
+                {{ row.option }}
+              </mat-checkbox>
+            </div>
+          </mat-radio-group>
+          <mat-error *ngIf="formView.controls[i].invalid">
+            Enter Valid Data
+          </mat-error>
+        </div>
+      </ng-container>
+    </ng-container>
+  </form>
+  <mat-checkbox (change)="getResponse($event)">Show Response</mat-checkbox>
+  <mat-card *ngIf="showResponse">
+    {{ formView.value | json}}
+  </mat-card>
+</div>

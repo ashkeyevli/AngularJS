@@ -1,0 +1,13 @@
+.radioButton {
+  display: flex;
+  flex-direction: column;
+  label{
+    padding-bottom: 8px;
+  }
+  .mat-radio-button {
+    padding-right: 15px;
+  }
+}
+.question {
+  color:black;background-color:white;font-size: 20px; font-weight: bold
+}

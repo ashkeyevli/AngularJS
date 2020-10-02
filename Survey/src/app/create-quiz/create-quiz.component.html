@@ -1,0 +1,85 @@
+
+<mat-tab-group>
+  <mat-tab label="Create quiz">
+    <div class="container">
+      <form [formGroup]="formGroup">
+        <div formArrayName="questions">
+          <mat-card class="row" [formGroupName]="i" *ngFor="let form of getQuestions(formGroup); let i = index">
+            <div class="row" >
+              <div class="col-md-2">
+                <mat-form-field>
+                  <mat-label>Type</mat-label>
+                  <mat-select formControlName="type">
+                    <mat-option *ngFor="let t of types" [value]="t.id">
+                      {{t.value}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-md-8">
+                <ng-container>
+                  <div *ngIf="getType(i) === 'radio'">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Enter Question" formControlName="label">
+                    </mat-form-field>
+                    <mat-checkbox formControlName="required">Required</mat-checkbox>
+                    <mat-form-field style="margin-left: 30px">
+
+                    <input matInput placeholder="Enter time for quiz" formControlName="timer">
+                    </mat-form-field>
+
+                    <div class="row" formArrayName="values">
+                      <div class="col-md-6" [formGroupName]="j" *ngFor="let opt of getOptions(form); let j = index">
+                        <mat-form-field>
+                        <mat-radio-button>
+                          <input matInput placeholder="Enter Option" formControlName="option">
+                        </mat-radio-button>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                        <button mat-flat-button color="primary" (click)="addValues(i)">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div *ngIf="getType(i) === 'select'">
+                    <mat-form-field class="full-width">
+                      <input matInput placeholder="Enter Question" formControlName="label">
+                    </mat-form-field>
+                    <mat-checkbox formControlName="required">Required</mat-checkbox>
+                    <mat-form-field >
+                    <input matInput placeholder="Enter time for quiz" formControlName="timer">
+                    </mat-form-field>
+                    <div class="row" formArrayName="values">
+                      <div class="col-md-6" [formGroupName]="j" *ngFor="let opt of getOptions(form); let j = index">
+                        <mat-form-field>
+                          <mat-checkbox><input matInput  formControlName="option"></mat-checkbox>
+                        </mat-form-field>
+                      </div>
+                      <div class="col-md-6">
+                        <button mat-flat-button color="primary" (click)="addValues(i)">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </div>
+              <div class="col-md-2">
+                <button mat-mini-fab color="warn" (click)="removeQuestion(i)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="padding-5">
+          <button mat-flat-button color="primary" (click)="addQuestion()">Add Component</button>
+        </div>
+        {{ formGroup.value| json }}
+      </form>
+    </div>
+  </mat-tab>
+  <mat-tab label="Fill quiz">
+    <ng-template matTabContent>
+      <app-fill-quiz [data]="formGroup.value"></app-fill-quiz>
+    </ng-template>
+  </mat-tab>
+</mat-tab-group>
