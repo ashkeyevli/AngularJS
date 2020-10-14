@@ -1,0 +1,20 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <h1>Album of user {{user}}</h1>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-vertical-stepper [linear]="isLinear" #stepper>
+  <mat-step *ngFor="let album of albums">
+    <ng-template matStepLabel >
+      <div (click) = getPhotos(album.id)>{{album.title}}</div>
+      <ng-container *ngFor="let photo of photos">
+        <img src="{{photo.thumbnailUrl}}"/>
+      </ng-container>
+    </ng-template>
+
+  </mat-step>
+</mat-vertical-stepper>
+
+<!--  <mat-nav-list *ngFor="let album of albums">-->
+<!--    <mat-list-item>{{album.title}}</mat-list-item></mat-nav-list>-->
+

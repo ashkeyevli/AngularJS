@@ -1,0 +1,6 @@
+<app-create-comments></app-create-comments>
+<ng-container *ngFor="let comment of comments">
+  <h3>{{comment.email}}</h3>
+  <h1>{{comment.name}}</h1>
+  <h5>{{comment.body}}</h5>
+</ng-container>
