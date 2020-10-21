@@ -1,0 +1,4 @@
+<app-album-wrapper>
+  <app-user-list (userSelected)="userSelectedHandler($event)"></app-user-list>
+  <app-album [user]="userId" [albums]="albums"></app-album>
+</app-album-wrapper>

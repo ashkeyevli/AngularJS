@@ -1,6 +1,22 @@
-<app-create-posts></app-create-posts>
-<ng-container *ngFor="let post of posts">
-  <a routerLink="{{post.id}}/comments">{{post.title}}</a>
+<app-create-posts style="position: fixed"></app-create-posts>
+<mat-select style="text-align: center"  (selectionChange)="getFilteredPosts($event.value)">
+  <mat-option value="">Filter by auther</mat-option>
+  <mat-option  *ngFor="let userSelect of users" value="{{userSelect.id}}">{{userSelect.name}}</mat-option>
+</mat-select>
+<mat-card class="post" *ngFor="let post of posts">
+<mat-card-header>
+  <mat-card-title >{{post.title}}</mat-card-title>
+</mat-card-header>
+  <mat-card-content>
   <h5>{{post.body}}</h5>
-</ng-container>
+  </mat-card-content>
+  <table  routerLink="{{post.id}}/comments">
+    <th>
+  <mat-icon svgIcon="comments" aria-hidden="false" aria-label="Comments"> View comments</mat-icon>
+    </th>
+    <th>View Comments</th>
+  </table>
+</mat-card>
+
+
 

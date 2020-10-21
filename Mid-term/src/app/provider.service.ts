@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {IAlbum, IComments, IPhoto, IPosts, IUser} from './model';
+import {IAlbum, IAuth, IComments, IPhoto, IPosts, IUser} from './model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +14,10 @@ export class ProviderService {
   };
   constructor(private http: HttpClient) { }
 
-  login(username, password): Observable<IUser> {
+  login(username, password): Observable<IAuth> {
     const url = this.BASE_URL;
 
-    return this.http.post<IUser>('http://127.0.0.1:3000/sign-in', {
+    return this.http.post<IAuth>('http://127.0.0.1:3000/sign-in', {
       username,
       password
     });
@@ -62,6 +62,10 @@ export class ProviderService {
     const url = this.BASE_URL;
     return this.http.get<IPosts[]>('http://127.0.0.1:3000/posts');
   }
+  filterPosts(selectedUser: any): Observable<IPosts[]> {
+    console.log(selectedUser);
+    return this.http.get<IPosts[]>('http://127.0.0.1:3000/posts?userId=' + selectedUser);
+  }
 
   getUser(userId: any): Observable<IUser> {
     const url = this.BASE_URL;
@@ -100,5 +104,17 @@ export class ProviderService {
     return this.http.get<IPhoto[]>('http://127.0.0.1:3000/albums/' + albumId + '/photos');
   }
 
-
+  postAlbum(suserId: any, stitle: string): Observable<IAlbum>{
+    console.log(suserId, stitle);
+    return this.http.post<IAlbum>('http://127.0.0.1:3000/albums/', {
+      userId: suserId,
+      title: stitle}, this.httpOptions);
+  }
+  postPhoto(salbumId: any, stitle: string, surl: string, sthumbanilUrl: string): Observable<IPhoto>{
+    return this.http.post<IPhoto>('http://127.0.0.1:3000/albums/' + salbumId + '/photos', {
+      albumId: salbumId,
+      title: stitle,
+    url: surl,
+    thumbnailUrl: sthumbanilUrl}, this.httpOptions);
+  }
 }

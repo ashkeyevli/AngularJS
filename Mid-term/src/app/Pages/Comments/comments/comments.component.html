@@ -1,6 +1,17 @@
-<app-create-comments></app-create-comments>
-<ng-container *ngFor="let comment of comments">
-  <h3>{{comment.email}}</h3>
-  <h1>{{comment.name}}</h1>
-  <h5>{{comment.body}}</h5>
-</ng-container>
+<app-create-comments style="position: fixed"></app-create-comments>
+<mat-card class="comment" *ngFor="let comment of comments">
+  <mat-card-header>
+    <mat-card-title>
+      {{comment.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{comment.email}}
+    </mat-card-subtitle>
+
+  </mat-card-header>
+<mat-card-content>
+  {{comment.body}}
+</mat-card-content>
+</mat-card>
+
+

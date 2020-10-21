@@ -1,9 +1,7 @@
 :host {
-  z-index: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: stretch;
   flex: 1 1 0;
   min-height: 0;
-  alignment: left;
 }

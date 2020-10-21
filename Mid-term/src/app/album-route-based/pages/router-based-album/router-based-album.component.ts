@@ -11,8 +11,8 @@ export class RouterBasedAlbumComponent implements OnInit {
   }
 
   userSelectedHandler(user) {
-
     this.router.navigate([user], { relativeTo: this.route });
+
   }
 
 }

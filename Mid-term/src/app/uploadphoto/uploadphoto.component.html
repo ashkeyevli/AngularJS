@@ -1,0 +1,10 @@
+<mat-select [(ngModel)]="selectedAlbum">
+  <mat-option style="text-align: center" *ngFor="let album of albums" value="{{album.id}}">{{album.title}}</mat-option>
+</mat-select>
+<input class="un " type="text" align="center" placeholder="title" [(ngModel)]="title" required>
+<input class="un " type="text" align="center" placeholder="title" [(ngModel)]="url" required>
+<input class="un " type="text" align="center" placeholder="title" [(ngModel)]="thumbnailUrl" required>
+
+
+<a class="submit" align="center"  (click)="uploadPhoto()" >Create Album</a>
+

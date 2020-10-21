@@ -1,6 +1,5 @@
 export interface IUser {
-  access_token: string;
-  id: number;
+  id: string;
   username: string;
   password: string;
   name: string;
@@ -10,6 +9,12 @@ export interface IUser {
   address: IAddress;
   geo: IGeo;
   company: ICompany;
+}
+export interface IAuth {
+  access_token: string;
+  userId: number;
+  username: string;
+  user: IUser;
 }
 
 export interface IAddress {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ProviderService} from '../../../provider.service';
 import {ActivatedRoute} from '@angular/router';
 import {IAlbum} from '../../../model';
+import {AlbumComponent} from '../../../ui/components/album/album.component';
 
 @Component({
   selector: 'app-album-page',
@@ -11,6 +12,7 @@ import {IAlbum} from '../../../model';
 export class AlbumPageComponent implements OnInit {
   albums: IAlbum[] = [];
   userId: string;
+
 
 
   constructor(private providerService: ProviderService, private route: ActivatedRoute) { }

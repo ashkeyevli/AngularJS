@@ -7,7 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
-import {MatStepper, MatStepperModule} from '@angular/material/stepper';
+import { MatStepperModule} from '@angular/material/stepper';
+import { MatGridListModule} from '@angular/material/grid-list';
+
 
 const MODULES = [MatInputModule,
     MatFormFieldModule,
@@ -17,6 +19,7 @@ const MODULES = [MatInputModule,
     MatCardModule,
     MatToolbarModule,
     MatStepperModule,
+  MatGridListModule,
 ];
 
 

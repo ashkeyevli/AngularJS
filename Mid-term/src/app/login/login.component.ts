@@ -33,15 +33,14 @@ export class LoginComponent implements OnInit {
       this.clear();
     } else if (this.login && this.password) {
       this.provider.login(this.login, this.password).subscribe(res => {
-        console.log(res);
+        console.log(this.login, this.password);
         localStorage.setItem('accessToken', res.access_token);
-        localStorage.setItem('userId', String(res.id));
+        localStorage.setItem('userId', String(res.userId));
 
         localStorage.setItem('name', this.login);
         this.logged = true;
         this.clear();
         alert('You logged in successfully!');
-        window.location.replace(`http://localhost:4200/posts`);
       });
     } else {
       alert('Wrong login or password! Try again!');

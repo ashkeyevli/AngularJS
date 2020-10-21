@@ -30,9 +30,12 @@ export class AlbumComponent implements OnInit {
 
 
   getPhotos(albumId: number): void {
+    console.log(albumId);
     this.providerService.getPhotos(String(albumId)).subscribe(photos => {
       this.photos = photos;
+      console.log(this.photos.length);
     } );
+
   }
 
 }

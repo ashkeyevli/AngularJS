@@ -21,6 +21,11 @@ import { NotFoundComponent } from './Pages/not-found/not-found.component';
 import { SelectContactComponent } from './ui/components/select-contact/select-contact.component';
 import { AlbumPageComponent } from './album-route-based/pages/album-page/album-page.component';
 import { PhotosComponent } from './ui/components/photos/photos.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { UserPageComponent } from './Pages/user-page/user-page.component';
+import { UploadphotoComponent } from './uploadphoto/uploadphoto.component';
+import { CreateAlbumComponent } from './create-album/create-album.component';
 
 
 @NgModule({
@@ -36,6 +41,9 @@ import { PhotosComponent } from './ui/components/photos/photos.component';
     SelectContactComponent,
     AlbumPageComponent,
     PhotosComponent,
+    UserPageComponent,
+    UploadphotoComponent,
+    CreateAlbumComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +52,9 @@ import { PhotosComponent } from './ui/components/photos/photos.component';
     HttpClientModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    UiModule
+    UiModule,
+    MatIconModule,
+    MatPaginatorModule
   ],
   providers: [
     ProviderService,
@@ -53,6 +63,9 @@ import { PhotosComponent } from './ui/components/photos/photos.component';
       useClass: AuthInterceptor,
       multi: true
     }
+  ],
+  exports: [
+    SelectContactComponent
   ],
   bootstrap: [AppComponent]
 })

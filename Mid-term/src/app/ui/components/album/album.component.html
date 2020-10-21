@@ -6,11 +6,19 @@
 <mat-vertical-stepper [linear]="isLinear" #stepper>
   <mat-step *ngFor="let album of albums">
     <ng-template matStepLabel >
-      <div (click) = getPhotos(album.id)>{{album.title}}</div>
-      <ng-container *ngFor="let photo of photos">
-        <img src="{{photo.thumbnailUrl}}"/>
-      </ng-container>
+      <button mat-raised-button color="primary" (click) = getPhotos(album.id)>{{album.title}}</button>
+
     </ng-template>
+    <ng-container *ngFor="let photo of photos">
+<!--      <ul class="mdc-image-list my-image-list" >-->
+<!--        <li class="mdc-image-list__item">-->
+<!--          <div class="mdc-image-list__image-aspect-container">-->
+            <h4>{{photo.title}}</h4>
+            <img class="mdc-image-list__image" src="{{photo.thumbnailUrl}}" alt="albumphotos">
+<!--          </div>-->
+<!--        </li>-->
+<!--      </ul>-->
+    </ng-container>
 
   </mat-step>
 </mat-vertical-stepper>

@@ -5,7 +5,23 @@
        [color]="routerLinkActive.isActive? 'accent':null"
        routerLink="/album-route"
        routerLinkActive="active"
-       #routerLinkActive="routerLinkActive">Router Based Album</a>
+       #routerLinkActive="routerLinkActive">Route Based Album</a>
+
+  <a mat-button
+     [color]="routerLinkActive.isActive? 'accent':null"
+     routerLink="/album-content-projection-based"
+     routerLinkActive="active"
+     #routerLinkActive="routerLinkActive">Content-Projection</a>
+    <a mat-button
+       [color]="routerLinkActive.isActive? 'accent':null"
+       routerLink="/posts"
+       routerLinkActive="active"
+       #routerLinkActive="routerLinkActive">Posts</a>
+    <a mat-button
+       [color]="routerLinkActive.isActive? 'accent':null"
+       routerLink="/user-page"
+       routerLinkActive="active"
+       #routerLinkActive="routerLinkActive">User Page</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <td><a (click)="logout()"  class="signin">Log out</a></td>
