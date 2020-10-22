@@ -2,26 +2,36 @@
   <mat-toolbar-row>
     <h1>{{title}}</h1>
     <a mat-button
+       [color]="pageLinkActive.isActive? 'accent':null"
+       routerLink="/user-page"
+       routerLinkActive="active"
+       #pageLinkActive="routerLinkActive">User Page</a>
+    <a mat-button
+       [color]="postsLinkActive.isActive? 'accent':null"
+       routerLink="/posts"
+       routerLinkActive="active"
+       #postsLinkActive="routerLinkActive">Posts</a>
+    <a mat-button
        [color]="routerLinkActive.isActive? 'accent':null"
        routerLink="/album-route"
        routerLinkActive="active"
        #routerLinkActive="routerLinkActive">Route Based Album</a>
 
   <a mat-button
-     [color]="routerLinkActive.isActive? 'accent':null"
+     [color]="contentLinkActive.isActive? 'accent':null"
      routerLink="/album-content-projection-based"
      routerLinkActive="active"
-     #routerLinkActive="routerLinkActive">Content-Projection</a>
-    <a mat-button
-       [color]="routerLinkActive.isActive? 'accent':null"
-       routerLink="/posts"
+     #contentLinkActive="routerLinkActive">Content-Projection</a>
+    <a mat-button class="login"
+       [color]="loginLinkActive.isActive? 'accent':null"
+       routerLink="/login"
        routerLinkActive="active"
-       #routerLinkActive="routerLinkActive">Posts</a>
-    <a mat-button
-       [color]="routerLinkActive.isActive? 'accent':null"
-       routerLink="/user-page"
-       routerLinkActive="active"
-       #routerLinkActive="routerLinkActive">User Page</a>
+       #loginLinkActive="routerLinkActive">Login</a>
+  <a mat-button
+     [color]="registerLinkActive.isActive? 'accent':null"
+     routerLink="/signUp"
+     routerLinkActive="active"
+     #registerLinkActive="routerLinkActive">Sign up</a>
   </mat-toolbar-row>
 </mat-toolbar>
 <td><a (click)="logout()"  class="signin">Log out</a></td>

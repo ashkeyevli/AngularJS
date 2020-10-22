@@ -22,5 +22,6 @@ export class CreatePostsComponent implements OnInit {
         this.post.push(res);
         alert('You posted!');
       });
+    location.reload();
   }
 }

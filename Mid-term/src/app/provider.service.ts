@@ -23,7 +23,7 @@ export class ProviderService {
     });
   }
 
-  postUser(login: any, pass: any, name: any, nEmail: any,
+  postUser(login: any, pass: any, sname: any, nEmail: any,
            sphone: any,
            swebsite: any,
            sstreet: any,
@@ -40,7 +40,7 @@ export class ProviderService {
     return this.http.post<IUser>('http://127.0.0.1:3000/users', {
       username: login,
       password: pass,
-      first_name: name,
+      name: sname,
       email: nEmail,
       phone: sphone,
     website: swebsite,
@@ -60,7 +60,7 @@ export class ProviderService {
 
   getPosts(): Observable<IPosts[]> {
     const url = this.BASE_URL;
-    return this.http.get<IPosts[]>('http://127.0.0.1:3000/posts');
+    return this.http.get<IPosts[]>(url + '/posts');
   }
   filterPosts(selectedUser: any): Observable<IPosts[]> {
     console.log(selectedUser);

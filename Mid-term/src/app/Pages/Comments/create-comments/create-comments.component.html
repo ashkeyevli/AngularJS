@@ -1,3 +1,5 @@
-<input type="text" placeholder="name" [(ngModel)]="name" required>
-<input type="text" placeholder="body" [(ngModel)]="body" required>
-<button (click)=postComment()>Submit</button>
+  <h3 class="createHeader">Post comment</h3>
+  <input matInput class="un" type="text" placeholder="comment title" [(ngModel)]="name" required>
+  <input matInput class="un" type="text" placeholder="content" [(ngModel)]="body" required>
+  <button class="submit" (click)=postComment()>Submit</button>
+

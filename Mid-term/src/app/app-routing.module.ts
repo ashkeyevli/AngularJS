@@ -20,7 +20,7 @@ const routes: Routes = [
     },
   },
   {path: 'user-page', component: UserPageComponent},
-  {path: 'album-content-projection-based', loadChildren: async() => {
+  {path: 'album-content-projection-based', loadChildren: async () => {
     const module = await import('./album-content-projection-based/album-content-projection-based.module');
     return module.AlbumContentProjectionBasedModule;
     },

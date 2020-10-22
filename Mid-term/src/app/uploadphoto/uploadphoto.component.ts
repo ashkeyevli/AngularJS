@@ -11,7 +11,7 @@ export class UploadphotoComponent implements OnInit {
 photo: IPhoto[] = [];
 albums: IAlbum[] = [];
 userId: string;
-selectedAlbum = '';
+selectedAlbum;
 url: string;
 title: string;
 thumbnailUrl: string;

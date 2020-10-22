@@ -26,5 +26,6 @@ export class CreateCommentsComponent implements OnInit {
         this.comment.push(res);
         alert('You commented!');
       });
+    location.reload();
   }
 }

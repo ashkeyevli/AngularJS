@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         console.log(this.login, this.password);
         localStorage.setItem('accessToken', res.access_token);
         localStorage.setItem('userId', String(res.userId));
-
+        window.location.replace('http://localhost:4200/user-page');
         localStorage.setItem('name', this.login);
         this.logged = true;
         this.clear();
