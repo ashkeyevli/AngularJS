@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProviderService} from '../../../provider.service';
 import {IPosts, IUser} from '../../../model';
+import {ActivatedRoute} from '@angular/router';
+import {AuthenticationService} from '../../../authentication.service';
 @Component({
   selector: 'app-create-posts',
   templateUrl: './create-posts.component.html',
@@ -22,6 +24,6 @@ export class CreatePostsComponent implements OnInit {
         this.post.push(res);
         alert('You posted!');
       });
-    location.reload();
+
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProviderService} from '../provider.service';
 import {IAlbum} from '../model';
+import {AuthenticationService} from '../authentication.service';
 
 @Component({
   selector: 'app-create-album',
@@ -25,6 +26,7 @@ albums: IAlbum[] = [];
         this.albums.push(res);
         alert('You created album!');
       });
-    location.reload();
+
+
   }
 }

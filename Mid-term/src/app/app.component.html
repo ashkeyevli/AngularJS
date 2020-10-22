@@ -26,7 +26,15 @@
        [color]="loginLinkActive.isActive? 'accent':null"
        routerLink="/login"
        routerLinkActive="active"
-       #loginLinkActive="routerLinkActive">Login</a>
+       #loginLinkActive="routerLinkActive"
+       (click)="authenticationService.login()"
+    *ngIf="!authenticationService.isAuthenticated">Login</a>
+      <a mat-button class="login"
+         [color]="logoutLinkActive.isActive? 'accent':null"
+         routerLinkActive="active"
+         (click)="authenticationService.logout()"
+         *ngIf="authenticationService.isAuthenticated"
+         #logoutLinkActive="routerLinkActive">Logout</a>
   <a mat-button
      [color]="registerLinkActive.isActive? 'accent':null"
      routerLink="/signUp"
@@ -34,6 +42,5 @@
      #registerLinkActive="routerLinkActive">Sign up</a>
   </mat-toolbar-row>
 </mat-toolbar>
-<td><a (click)="logout()"  class="signin">Log out</a></td>
 
 <router-outlet></router-outlet>

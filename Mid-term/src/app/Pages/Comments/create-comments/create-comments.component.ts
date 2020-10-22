@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {IComments, IPosts} from '../../../model';
 import {ProviderService} from '../../../provider.service';
 import {ActivatedRoute} from '@angular/router';
+import {AuthenticationService} from '../../../authentication.service';
 
 @Component({
   selector: 'app-create-comments',
@@ -26,6 +27,7 @@ export class CreateCommentsComponent implements OnInit {
         this.comment.push(res);
         alert('You commented!');
       });
-    location.reload();
+
+
   }
 }
