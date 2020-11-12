@@ -1,0 +1,23 @@
+
+<div [ngStyle]="{'background-color': type === 'isSuccess' ? 'green' : 'red', 'margin-bottom': '5px'}">
+  <div class="toastheader" >
+    <ng-container *ngIf="showTitle">
+    <strong>{{title}}</strong>
+    </ng-container>
+    <ng-container *ngIf="hasCloseButton">
+      <button mat-button  aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+    </ng-container>
+  </div>
+
+  <div class="toastbody">
+
+{{content}}  </div>
+  <mat-progress-bar color="warn" mode="determinate" [value]=timeleft></mat-progress-bar>
+
+</div>
+
+<ng-container ></ng-container>
+

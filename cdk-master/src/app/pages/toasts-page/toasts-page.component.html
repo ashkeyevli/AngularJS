@@ -1,0 +1,57 @@
+<table>
+  <td>
+<table>
+  <tr><h3>Title</h3><input  style="max-width: 300px" placeholder="Title" [(ngModel)]="title">
+  </tr>
+  <tr><h3>Content</h3><input  style="max-width: 300px" placeholder="Content" [(ngModel)]="content">
+  </tr>
+</table>
+    <h3>Select type</h3>
+  <mat-radio-group aria-label="Select an option" [(ngModel)]="color1">
+    <mat-radio-button *ngFor="let color of colors" [value]="color">{{color}}</mat-radio-button>
+  </mat-radio-group>
+<section class="example-section">
+  <mat-slide-toggle
+    class="example-margin"
+    [(ngModel)]="showTitle">
+    Show Title
+  </mat-slide-toggle>
+</section>
+<section class="example-section">
+  <mat-slide-toggle
+    class="example-margin"
+    [(ngModel)]="hasCloseButton">
+    HasCloseButton
+  </mat-slide-toggle>
+</section>
+<mat-slider
+  color="primary"
+  thumbLabel
+  [displayWith]="formatLabel"
+  tickInterval="1000"
+  min="0"
+  max="100"
+  [(ngModel)]="duration"
+style="max-width: 200px"></mat-slider>
+   <p><button
+      type="button"
+      class="btn btn-primary"
+      (click)="showToast()"
+    >Toast</button>
+   </p>
+  </td>
+  <td>
+    <label>Horizontal position</label>
+    <div>
+<mat-radio-group aria-label="Select an option" [(ngModel)]="horizontalOrientation">
+  <mat-radio-button *ngFor="let position of xpositions" [value]="position">{{position}}</mat-radio-button>
+</mat-radio-group>
+    </div>
+    <label>Vertical position</label>
+    <div>
+      <mat-radio-group aria-label="Select an option" [(ngModel)]="verticalOrientation">
+        <mat-radio-button *ngFor="let position of ypositions" [value]="position">{{position}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </td>
+</table>
