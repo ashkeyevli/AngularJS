@@ -1,12 +1,12 @@
 
-<div [ngStyle]="{'background-color': type === 'isSuccess' ? 'green' : 'red', 'margin-bottom': '5px'}">
+<div [ngStyle]="{'background-color': type === 'isSuccess' ? 'green' : 'red', 'margin-bottom': '5px', 'border-radius': '10px'}">
   <div class="toastheader" >
     <ng-container *ngIf="showTitle">
     <strong>{{title}}</strong>
     </ng-container>
-    <ng-container *ngIf="hasCloseButton">
-      <button mat-button  aria-label="Close" (click)="close()">
-        <span aria-hidden="true">&times;</span>
+    <ng-container  *ngIf="hasCloseButton">
+      <button style="margin-left: 70px" mat-button   aria-label="Close" (click)="removeHandler()">
+        <span  aria-hidden="true">&times;</span>
       </button>
 
     </ng-container>

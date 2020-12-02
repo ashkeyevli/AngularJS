@@ -12,10 +12,11 @@ import { ToastComponent } from './components/toast/toast.component';
 import {CustomMaterialModule} from '../custom-material/custom-material.module';
 import {FormsModule} from '@angular/forms';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [PageLayoutComponent, AlertComponent, ConfirmComponent, PromptComponent, TooltipComponent, TooltipDirective, ToastComponent],
-  imports: [CommonModule, RouterModule, OverlayModule, CustomMaterialModule, FormsModule, MatProgressBarModule],
+  imports: [CommonModule, RouterModule, OverlayModule, CustomMaterialModule, FormsModule, MatProgressBarModule, BrowserAnimationsModule],
     exports: [PageLayoutComponent, TooltipDirective],
 })
 export class UiModule {}

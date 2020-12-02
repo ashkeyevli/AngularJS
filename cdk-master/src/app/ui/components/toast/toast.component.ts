@@ -1,13 +1,23 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, EventEmitter, HostBinding, HostListener, Inject, OnInit, Output} from '@angular/core';
 import {OverlayRef} from '@angular/cdk/overlay';
 import {DIALOG_CONFIG, TOAST_CONFIG} from '../../services/dialog.tokens';
 import {IAlertConfig} from '../../services/dialog.configurations';
 import {IToastConfig} from '../../services/toast/toast.configations';
+import {TOAST_ANIMATION_TRIGGER} from './toast.animation';
+import {animate, AnimationEvent, style, transition, trigger} from '@angular/animations';
+import {timeout} from 'rxjs/operators';
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
-  styleUrls: ['./toast.component.scss']
+  styleUrls: ['./toast.component.scss'],
+  animations: [
+    TOAST_ANIMATION_TRIGGER
+    // trigger('animation', [
+    //   transition('void => default', [style({   height: 0, overflow: 'hidden'}), animate(1000, style({ height: '*' }))]),
+    //   transition('* => leaving', animate(1000, style({ height: '0', overflow: 'hidden',   })))])
+
+  ],
 })
 export class ToastComponent implements OnInit {
   title: string;
@@ -22,7 +32,6 @@ export class ToastComponent implements OnInit {
   timeleft: number;
   selectedColor: string;
   intervalId: number;
-  animationState = 'default';
 
 
   constructor(
@@ -38,6 +47,11 @@ export class ToastComponent implements OnInit {
     this.xPosition = _config.xPosition;
     this.yPosition = _config.yPosition;
   }
+ @Output()
+ remove = new EventEmitter();
+
+  @HostBinding('@animation')
+  state: 'default' | 'leaving' = 'default';
 
   ngOnInit(): void {
     // setTimeout(() => {this.close(); } , parseFloat(this.duration) * 1000);
@@ -48,14 +62,24 @@ export class ToastComponent implements OnInit {
         console.log(this.timeleft);
       } else
         {
-          this.close();
+          this.removeHandler();
         }
       }, 1300);
   }
 
-  close() {
-    this._overlayRef.dispose();
-    this._config.close();
+  removeHandler(){
+    this.state = 'leaving';
   }
+
+  @HostListener('@animation.start', ['$event'])
+  @HostListener('@animation.done', ['$event'])
+  logAnimationEvents(event: AnimationEvent): void{
+    if (event.toState === 'leaving' && event.phaseName === 'done'){
+      this._config.close();
+      this._overlayRef.dispose();
+
+    }
+  }
+
 
 }
