@@ -161,6 +161,7 @@
       <workItem from="1587899028600" duration="5229000" />
       <workItem from="1605467944812" duration="714000" />
       <workItem from="1607803729441" duration="27930000" />
+      <workItem from="1607933675548" duration="1837000" />
     </task>
     <task id="LOCAL-00001" summary="registration+login works fully">
       <created>1587723722674</created>
@@ -226,9 +227,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2012" y="92" width="1736" height="896" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1607813159006" />
-    <state x="349" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1607900810720">
+    <state x="349" y="189" key="com.intellij.ide.util.TipDialog" timestamp="1607933677905">
       <screen x="0" y="0" width="1280" height="720" />
     </state>
+    <state x="349" y="189" key="com.intellij.ide.util.TipDialog/0.0.1280.720/1920.0.1920.1080@0.0.1280.720" timestamp="1607933677905" />
     <state x="349" y="189" key="com.intellij.ide.util.TipDialog/0.0.1280.720/1920.0.1920.1080@1920.0.1920.1080" timestamp="1607900810720" />
     <state x="349" y="189" key="com.intellij.ide.util.TipDialog/0.0.1280.720@0.0.1280.720" timestamp="1605467947689" />
   </component>
